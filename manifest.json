@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Chrome App Music",
+  "version": "0.0.1",
+  "minimum_chrome_version": "23",
+  "icons": {
+    "16": "img/16.png",
+    "128": "img/128.png"
+  },
+  "app": {
+    "background": {
+      "scripts": ["js/main.js"]
+    }
+  },
+    "offline_enabled": true,
+    "permissions": ["storage","notifications"]
+}

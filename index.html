@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reproductor de Musica">
+    <meta name="author" content="Harold Sanchez Balaguera">
+    <link rel="shortcut icon" href="img/16.png">
+
+    <title>Music Chrome App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav click" id='player'>
+            <li id='separator'></li>
+            <li id='repeat'></li>
+            <li id='left'></li>
+            <li id='playpause'></li>
+            <li id='right'></li>
+            <li id='suffle'></li>
+          </ul>
+          <div class="progress progress-striped active seek">
+  <div class="progress-bar"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+    <span class="sr-only"></span>
+  </div>
+</div>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class=".col-md-12">
+        <h1>
+          <span class="glyphicon glyphicon-folder-open">
+            <input style="opacity:0" type="file" id="choosefiles" multiple />
+          </span>
+        </h1>
+        <hr>
+        <div class="row">
+          <div class="col-md-12" id='tabla'>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Artist</th>
+                  <th>Album</th>
+                  <th>Year</th>
+                </tr>
+              </thead>
+              <tbody id='playlist'>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.create.js"></script>
+    <script src="js/custom.js"></script>
+  </body>
+</html>
