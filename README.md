@@ -3,11 +3,11 @@ A minimalist player, can listen to all your music without opening those heavy pl
 
 To Do:
 
-Sync Storage
-Lyrics
-Scroll LastFM
-Album Cover
-Test in Linux, Chrome OS and Mac
+Sync Storage<br>
+Lyrics<br>
+Scroll LastFM<br>
+Album Cover<br>
+Test in Linux, Chrome OS and Mac<br>
 
 Linto to Chrome Web Store: 
 
