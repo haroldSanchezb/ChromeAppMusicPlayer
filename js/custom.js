@@ -22,8 +22,9 @@ playpause.click(function() {
 		playpause.removeClass('playing');
 	}
 });
+$("#tabla").niceScroll({cursorcolor:"#ccc",cursorwidth: 10,autohidemode:false});
 function createPlayList(i){
-	console.log('entro por aca para ponerlo visible')
+	//console.log('entro por aca para ponerlo visible')
 	var element = $.create('tr',{id: 'song'+i,'class': 'click reproducir'},[]);
 	playlist.append(element);
 	var id = '#song'+i;	
@@ -40,18 +41,18 @@ function randomico(slength){
 	return Math.floor((Math.random()*slength)+1)
 }
 function getMetaData(i) {
-	console.log('buscando los metadata '+i)
-	console.log(songs[i])
+	//console.log('buscando los metadata '+i)
+	//console.log(songs[i])
 	if (songs[i].meta == undefined) {
-		console.log('no existen los metadata')
+		//console.log('no existen los metadata')
 		var metad = songs[i].slice(songs[i].size-128);
 		var metareader = new FileReader();
 		metareader.onload = function(e) {
-			console.log('entre por aca')
+			//console.log('entre por aca')
 			var metadata = e.target.result;
-			console.log(metadata)
+			//console.log(metadata)
 			if (metadata.search('TAG') == 0) {
-				console.log('tiene tag')
+				//console.log('tiene tag')
 				metadata = metadata.substr(3, metadata.length-3);
 				songs[i].meta = {};
 				songs[i].meta.title = metadata.substr(0,30);
@@ -74,7 +75,7 @@ function getMetaData(i) {
 		}
 		metareader.readAsBinaryString(metad);
 	}else{
-		console.log('tiene metadata')
+		//console.log('tiene metadata')
 	}
 }
 function playnext(i){
@@ -93,9 +94,9 @@ function playnext(i){
 	}	
 }
 function playback(i){
-	console.log('ya paso a back')
+	//console.log('ya paso a back')
 	i--;
-	console.log(i)
+	//console.log(i)
 	if(i >=0){
 		playMusic(i);
 	}
@@ -158,32 +159,32 @@ function fileChanged(files) {
 	for (var i = 0; i< files.length; i++) {
 		if (files[i].type == 'audio/mp3') {
 			songs.push(files[i]);
-			console.log('estoy por aca contador='+i)
-			console.log('total canciones='+totalsongs)
+			// console.log('estoy por aca contador='+i)
+			// console.log('total canciones='+totalsongs)
 			var numero = i+totalsongs
 			//console.log(songs[numero])
 			getMetaData(numero)
 		}
 	}
 	if(totalsongs == 0){
-		console.log('aqui empieza a reproducir')
+		//console.log('aqui empieza a reproducir')
 		playMusic(0)
 		totalsongs = songs.length;
-		console.log('total canciones reproduciendo='+totalsongs);
+		//console.log('total canciones reproduciendo='+totalsongs);
 	}else {
-		console.log('total canciones nueva='+totalsongs)
-		console.log(songs.length)
+		//console.log('total canciones nueva='+totalsongs)
+		//console.log(songs.length)
 		totalsongs = songs.length;
-		console.log('total canciones nueva con el agregado='+totalsongs)
-		console.log('por aqui le sumo las canciones agregadas')
+		//console.log('total canciones nueva con el agregado='+totalsongs)
+		//console.log('por aqui le sumo las canciones agregadas')
 	}
 }
 right.click(function(){
-	console.log('adelante')
+	//console.log('adelante')
 	playnext(currenti)
 });
 left.click(function(){
-	console.log('atras')
+	//console.log('atras')
 	playback(currenti)
 });
 repeat.click(function(){
