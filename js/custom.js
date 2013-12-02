@@ -12,7 +12,11 @@ var playpause = $('#playpause'),
 	totalsongs= 0,
 	currenti=0,
 	repeats = false,
-	suffles = false;
+	suffles = false,
+	lcurrent = $('.current'),
+	lduration = $('.duration'),
+	search = $('.search'),
+	arraysongs = [];
 playpause.click(function() {
 	if (song.paused) {
 		song.play();
@@ -79,11 +83,27 @@ function getMetaData(i) {
 	}
 }
 function playnext(i){
-	if(suffles){
+	if(suffles == true && repeats == true){
+		arraysongs = []
+		console.log('todo true')
 		i = randomico((songs.length-1))
+	}else if(suffles){
+		arraysongs.push(i);
+		console.log('solo suffle')
+		console.log(arraysongs)
+		i = randomico((songs.length-1))
+		if(songs.length != arraysongs.length){
+			if($.inArray(i,arraysongs) !='-1'){
+				playnext(i);
+				return;
+			}	
+		}
 	}else{
+		arraysongs = []
+		console.log('no esta el suffles y el repeat al tiempo')
 		i++;
 		if(repeats){
+			console.log('solo  si esta repeats')
 			if(i == songs.length){
 				i = 0
 			}	
@@ -108,6 +128,12 @@ function playerinit(songdata, songtype,i) {
     song.addEventListener('timeupdate',function (){
         current = parseInt(song.currentTime, 10);
         // console.log(current)
+        var s = parseInt(song.currentTime % 60);
+    	var m = parseInt((song.currentTime / 60) % 60);
+        lcurrent.text(m+':'+s)
+        var s2 = parseInt(song.duration % 60);
+    	var m2 = parseInt((song.duration / 60) % 60);
+        lduration.text(m2+':'+s2)
         perc = current/song.duration * 100;
         // console.log(perc)
         progress.attr('aria-valuenow',Math.round(perc)).css('width',Math.round(perc)+'%')
@@ -115,6 +141,8 @@ function playerinit(songdata, songtype,i) {
         	playpause.removeClass('playing');
         	progress.attr('aria-valuenow','0').css('width','0%')
         	playnext(i);
+        	lcurrent.text('')
+        	lduration.text('')
         }
         // seek.attr('value',song.currentTime);
         // seek.attr('max', song.duration);
@@ -208,6 +236,18 @@ suffle.click(function(){
 })
 $('body').on('click', '.reproducir', function () {
      playMusic($(this).attr('id').replace('song',''));
+});
+$('body').on('keypress', function (e) {
+     console.log(e.keyCode)
+});
+$('body').on('keyup', '.search', function () {
+     if($(this).val()!=''){
+     	$('.reproducir').hide();
+     	$('.reproducir:contains("'+$(this).val()+'")').show();	
+     }else{
+     	$('.reproducir').show();
+     }
+     e.preventDefault();
 });
 openfiles.on('change',function(e) {
     var files = e.target.files;

@@ -2,7 +2,7 @@
   "manifest_version": 2,
     "update_url":"http://clients2.google.com/service/update2/crx",
   "name": "Chrome App Music",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "minimum_chrome_version": "23",
   "icons": {
     "16": "img/16.png",

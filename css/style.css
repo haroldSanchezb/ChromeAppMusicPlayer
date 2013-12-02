@@ -33,10 +33,21 @@
 	position: relative;
 	margin-top: -35px;
 	height: 35px;
-	width: 5%;
+	width: 70%;	
 }
 .selected{
 	border: 1px solid #CCC;
+}
+.seek{
+	margin-top: 5px !important;
+}
+.songt{
+	position: relative;
+	margin-top: 1px;
+	left: 20px;
+}
+.songt.duration{
+	margin-top: -17px;
 }
 @media (min-width: 768px){
 	#tabla{

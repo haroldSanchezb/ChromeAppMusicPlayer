@@ -32,10 +32,12 @@
             <li id='suffle'></li>
           </ul>
           <div class="progress progress-striped active seek">
-  <div class="progress-bar"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-    <span class="sr-only"></span>
-  </div>
-</div>
+            <div class="progress-bar"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+              <span class="sr-only"></span>
+            </div>
+          </div>
+          <span class="songt current label label-default"></span>
+          <span class="songt duration label label-info pull-right"></span>
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -44,9 +46,16 @@
 
       <div class=".col-md-12">
         <h1>
-          <span class="glyphicon glyphicon-folder-open">
-            <input style="opacity:0" type="file" id="choosefiles" multiple />
-          </span>
+          <div class="row">
+            <div class="col-xs-1">
+              <span class="glyphicon glyphicon-folder-open">
+                <input style="opacity:0" type="file" id="choosefiles" multiple />
+              </span>
+            </div>
+            <div class="col-xs-3">
+              <input type="text" class="search form-control" placeholder="Search">
+            </div>
+          </div>
         </h1>
         <hr>
         <div class="row">
